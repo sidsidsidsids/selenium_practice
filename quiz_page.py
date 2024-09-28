@@ -6,11 +6,13 @@ class QuizPage:
 
     def write(self, by, value, text: str):
         element = self.driver.find_element(by, value)
+        assert element, f"존재하지 않는 element: {value}"
         element.clear()
         element.send_keys(text)
 
     def tap(self, by, value):
         element = self.driver.find_element(by, value)
+        assert element, f"존재하지 않는 element: {value}"
         element.click()
 
     # 로고 버튼

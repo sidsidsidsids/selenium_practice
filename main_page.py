@@ -7,6 +7,7 @@ class MainPage:
 
     def tap(self, by, value):
         element = self.driver.find_element(by, value)
+        assert element, f"존재하지 않는 element: {value}"
         element.click()
 
     # 로고 버튼
@@ -38,6 +39,3 @@ class MainPage:
     def tap_py_button(self):
         self.tap(By.XPATH, self.py_button)
         return QuizPage(self.driver)
-
-# def get_displayed(value: bool):
-#     return "활성화" if value else "비활성화"
